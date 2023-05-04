@@ -10,8 +10,15 @@
   "license": "ISC",
   "devDependencies": {
     "@tsconfig/node-lts": "latest",
+    "@types/cheerio": "latest",
     "prettier": "latest",
     "ts-node": "latest",
     "typescript": "latest"
+  },
+  "dependencies": {
+    "axios": "latest",
+    "cheerio": "latest",
+    "csv-stringify": "latest",
+    "dotenv": "latest"
   }
 }
