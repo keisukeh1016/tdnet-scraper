@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 import * as cheerio from "cheerio";
 import { stringify } from "csv-stringify/sync";
 import * as dotenv from "dotenv";
@@ -80,11 +80,16 @@ async function outputCSV(
   disclosures: TDnetDisclosure[]
 ): Promise<void> {
   if (disclosures.length === 0) {
+    console.log(`TDnet disclosures is not found`);
+    console.log();
     return;
   }
 
   const output = stringify(disclosures, { header: true });
   await fs.writeFile(file, output);
+
+  console.log(`Output ${disclosures.length} TDnet disclosures to "${file}"`);
+  console.log();
 }
 
 // HTTP関連処理
